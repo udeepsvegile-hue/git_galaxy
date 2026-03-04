@@ -1,0 +1,12 @@
+.container { position: fixed; left: 16px; bottom: 16px; pointer-events: auto; width: min(360px, calc(100vw - 32px)); display: grid; gap: 8px; }
+.toggleBtn { border: 1px solid #334155; background: rgba(2, 6, 23, 0.95); color: #e2e8f0; padding: 8px 10px; border-radius: 10px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.icon { opacity: 0.9; }
+.label { font-size: 12px; color: #94a3b8; }
+.active { border-color: #22c55e; }
+.expanded .sliderRow { display: grid; }
+.sliderRow { display: none; gap: 8px; background: rgba(2, 6, 23, 0.95); border: 1px solid #1e293b; border-radius: 10px; padding: 10px; }
+.sliderLabel { color: #94a3b8; font-size: 12px; }
+.sliderLabelRight { color: #e2e8f0; font-size: 12px; justify-self: end; }
+.slider { width: 100%; }
+.sliderTrack { position: relative; height: 6px; border-radius: 999px; background: #1e293b; overflow: hidden; }
+.sliderFill { position: absolute; inset: 0 auto 0 0; width: var(--fill, 0%); background: linear-gradient(90deg, #0ea5e9, #22d3ee); }

@@ -1,0 +1,148 @@
+/* =====================================================
+   GitVerse — Global Styles & Design Tokens
+   ===================================================== */
+
+/* ─── Google Fonts already loaded in index.html ─── */
+
+/* ─── Design Tokens ──────────────────────────────── */
+:root {
+  /* Colors */
+  --color-void: #000814;
+  --color-deep-space: #001427;
+  --color-nebula-blue: #0a1628;
+  --color-star-white: #e8f4f8;
+  --color-pulsar: #00d4ff;
+  --color-pulsar-dim: rgba(0, 212, 255, 0.3);
+  --color-solar: #ffd700;
+  --color-solar-dim: rgba(255, 215, 0, 0.3);
+  --color-danger: #ff4d4d;
+  --color-danger-dim: rgba(255, 77, 77, 0.2);
+  --color-success: #39ff14;
+  --color-text-primary: #c9d6e3;
+  --color-text-secondary: #6b8099;
+  --color-text-dim: #2a3a4a;
+  --color-border: rgba(0, 212, 255, 0.15);
+  --color-border-active: rgba(0, 212, 255, 0.5);
+  --color-glass: rgba(0, 20, 40, 0.7);
+  --color-glass-light: rgba(0, 30, 60, 0.5);
+
+  /* Typography */
+  --font-display: "Orbitron", sans-serif;
+  --font-body: "Rajdhani", sans-serif;
+  --font-mono: "Share Tech Mono", monospace;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 600ms ease;
+
+  /* Z-index layers */
+  --z-canvas: 0;
+  --z-hud: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+}
+
+/* ─── Reset ──────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-void);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root,
+.app-root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Typography Utilities ───────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+/* ─── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-deep-space); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-pulsar-dim);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-pulsar); }
+
+/* ─── Selection ──────────────────────────────────── */
+::selection {
+  background: var(--color-pulsar-dim);
+  color: var(--color-pulsar);
+}
+
+/* ─── Focus ──────────────────────────────────────── */
+:focus-visible {
+  outline: 1px solid var(--color-pulsar);
+  outline-offset: 2px;
+}
+
+/* ─── Glassmorphism Panel ────────────────────────── */
+.glass-panel {
+  background: var(--color-glass);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── Scan line animation overlay ───────────────── */
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ─── Glow pulse ─────────────────────────────────── */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+/* ─── Flicker ────────────────────────────────────── */
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96%            { opacity: 0.8; }
+  97%            { opacity: 1; }
+  98%            { opacity: 0.6; }
+}
+
+/* ─── Cursor ─────────────────────────────────────── */
+canvas { cursor: crosshair; }
+button { cursor: pointer; }

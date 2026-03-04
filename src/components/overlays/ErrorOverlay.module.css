@@ -1,0 +1,11 @@
+.container { position: fixed; inset: 0; display: grid; place-items: center; background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.7), rgba(2, 6, 23, 0.95)); z-index: 40; }
+.panel { width: min(520px, 92vw); border: 1px solid #334155; border-radius: 12px; background: #020617; padding: 20px; display: grid; gap: 12px; }
+.icon { font-size: 28px; }
+.title { font-size: 20px; font-weight: 700; color: #f8fafc; }
+.message { color: #cbd5e1; }
+.code { font-family: monospace; color: #e2e8f0; background: #0f172a; border: 1px solid #1e293b; padding: 8px; border-radius: 8px; }
+.retryInfo { color: #fbbf24; font-size: 13px; }
+.actions { display: flex; gap: 8px; }
+.btnPrimary, .btnSecondary { border: 1px solid #334155; border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+.btnPrimary { color: #e2e8f0; background: #1d4ed8; border-color: #2563eb; }
+.btnSecondary { color: #cbd5e1; background: transparent; }

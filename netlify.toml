@@ -1,0 +1,86 @@
+# =====================================================
+#  GitVerse — Netlify Configuration
+# =====================================================
+
+[build]
+  # Directory to publish (Vite output)
+  publish = "dist"
+
+  # Build command
+  command = "npm run build"
+
+  # Netlify Functions directory
+  functions = "netlify/functions"
+
+# ─────────────────────────────────────────────────
+#  Environment: Production
+# ─────────────────────────────────────────────────
+[context.production]
+  command = "npm run build"
+
+  [context.production.environment]
+    NODE_ENV = "production"
+    VITE_APP_ENV = "production"
+
+# ─────────────────────────────────────────────────
+#  Environment: Deploy Preview (PR previews)
+# ─────────────────────────────────────────────────
+[context.deploy-preview]
+  command = "npm run build"
+
+  [context.deploy-preview.environment]
+    NODE_ENV = "production"
+    VITE_APP_ENV = "preview"
+
+# ─────────────────────────────────────────────────
+#  Environment: Branch Deploy (non-main branches)
+# ─────────────────────────────────────────────────
+[context.branch-deploy]
+  command = "npm run build"
+
+  [context.branch-deploy.environment]
+    NODE_ENV = "production"
+    VITE_APP_ENV = "staging"
+
+# ─────────────────────────────────────────────────
+#  SPA Routing — Send all routes to index.html
+# ─────────────────────────────────────────────────
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# ─────────────────────────────────────────────────
+#  Functions: Security Headers
+# ─────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options           = "DENY"
+    X-Content-Type-Options    = "nosniff"
+    X-XSS-Protection          = "1; mode=block"
+    Referrer-Policy           = "strict-origin-when-cross-origin"
+    Permissions-Policy        = "camera=(), microphone=(), geolocation=()"
+
+# Cache immutable assets (Vite adds hashes to these)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Do not cache HTML (always fresh)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ─────────────────────────────────────────────────
+#  Dev Server (netlify dev)
+# ─────────────────────────────────────────────────
+[dev]
+  command      = "npm run dev"
+  port         = 8888
+  targetPort   = 5173
+  framework    = "vite"
+  publish      = "dist"
+  autoLaunch   = false

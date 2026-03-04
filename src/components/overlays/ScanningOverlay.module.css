@@ -1,0 +1,12 @@
+.overlay { position: fixed; inset: 0; pointer-events: none; z-index: 35; color: #e2e8f0; }
+.corner { position: absolute; width: 32px; height: 32px; border: 1px solid #22d3ee; }
+.tl { top: 16px; left: 16px; border-right: 0; border-bottom: 0; }
+.tr { top: 16px; right: 16px; border-left: 0; border-bottom: 0; }
+.bl { bottom: 16px; left: 16px; border-right: 0; border-top: 0; }
+.br { bottom: 16px; right: 16px; border-left: 0; border-top: 0; }
+.scanLine { position: absolute; left: 0; right: 0; top: var(--scan-line-top, 25%); border-top: 1px solid rgba(34, 211, 238, 0.4); }
+.scanInfo { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); display: grid; gap: 4px; text-align: center; }
+.scanLabel, .scanName, .progressPct { font-size: 12px; }
+.scanName { color: #67e8f9; }
+.progressBar { width: 280px; height: 8px; background: #0f172a; border: 1px solid #1e293b; border-radius: 999px; overflow: hidden; }
+.progressFill { height: 100%; background: linear-gradient(90deg, #0ea5e9, #22d3ee); width: var(--progress, 0%); }
